@@ -1,6 +1,11 @@
 let s:sound_dir = expand('<sfile>:p:h') .. '/../sounds'
 
 function! reverb#On()
+  if !has('sound')
+    echoerr "This plugin requires the +sound feature. Try a \"huge\" installation of Vim"
+    return
+  endif
+
   augroup reverb
     autocmd!
 
